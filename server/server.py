@@ -3,6 +3,8 @@ from flask import request
 import requests
 import json
 
+# running on http://127.0.0.1:5000/improve
+
 url = "http://localhost:11434/api/generate"
 
 app = Flask(__name__)
@@ -28,7 +30,7 @@ def improve_text():
         response.raise_for_status()
         
         ollama_data = response.json()
-        improved_text = ollama_data.get("response", "")
+        improved_text = ollama_data.get("response", "") # return "" is key doesn't exist 
         
         return jsonify({"improved_text": improved_text})
         
