@@ -1,43 +1,40 @@
-/* Estilos Gerais para o Popup e Futuros Elementos */
-body {
+body#andes-ai-popup-container {
     font-family: 'Inter', sans-serif;
     background-color: #f4f7f9;
     color: #333;
     margin: 0;
-    width: 320px; /* Largura fixa para o popup */
+    width: 320px; 
 }
 
-.container {
+#andes-ai-popup-container .container {
     padding: 20px;
     text-align: center;
 }
 
-/* Header */
-header {
+#andes-ai-popup-container header {
     margin-bottom: 20px;
 }
 
-.logo {
+#andes-ai-popup-container .logo {
     width: 64px;
     height: 64px;
     margin-bottom: 10px;
 }
 
-h1 {
+#andes-ai-popup-container h1 {
     font-size: 24px;
     font-weight: 700;
     color: #2c3e50;
     margin: 0;
 }
 
-.subtitle {
+#andes-ai-popup-container .subtitle {
     font-size: 14px;
     color: #7f8c8d;
     margin-top: 5px;
 }
 
-/* Conteúdo Principal */
-main h2 {
+#andes-ai-popup-container main h2 {
     font-size: 18px;
     font-weight: 600;
     color: #34495e;
@@ -46,7 +43,7 @@ main h2 {
     text-align: left;
 }
 
-.instructions {
+#andes-ai-popup-container .instructions {
     list-style: none;
     padding: 0;
     text-align: left;
@@ -54,13 +51,13 @@ main h2 {
     line-height: 1.6;
 }
 
-.instructions li {
+#andes-ai-popup-container .instructions li {
     margin-bottom: 12px;
     display: flex;
     align-items: flex-start;
 }
 
-.instructions li::before {
+#andes-ai-popup-container .instructions li::before {
     content: '✓';
     color: #2ecc71;
     font-weight: bold;
@@ -68,7 +65,7 @@ main h2 {
     font-size: 16px;
 }
 
-.instructions li span {
+#andes-ai-popup-container .instructions li span {
     font-weight: 600;
     background-color: #e9f5ff;
     padding: 2px 6px;
@@ -77,15 +74,14 @@ main h2 {
     margin-right: 5px;
 }
 
-/* Footer */
-footer {
+
+#andes-ai-popup-container footer {
     margin-top: 25px;
     font-size: 12px;
     color: #95a5a6;
 }
 
-/* Estilo para o botão "Improve" que será injetado pelo content.js */
-#andes-ai-button {
+#andes-ai-popup-container #andes-ai-button {
     position: absolute;
     background-color: #3498db;
     color: white;
@@ -100,6 +96,6 @@ footer {
     font-weight: 600;
 }
 
-#andes-ai-button:hover {
+#andes-ai-popup-container   #andes-ai-button:hover {
     background-color: #2980b9;
 }
