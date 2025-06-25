@@ -99,3 +99,29 @@ body#andes-ai-popup-container {
 #andes-ai-popup-container   #andes-ai-button:hover {
     background-color: #2980b9;
 }
+
+#btn-improve-andesai {
+  position: absolute; 
+  z-index: 210101010;
+
+  padding: 8px 14px;
+  border: none; 
+  border-radius: 8px; 
+
+  background-color: #ffffff; 
+  color: #2c3e50; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1; 
+  cursor: pointer; 
+  transition: all 0.2s ease-in-out; 
+}
+
+#btn-improve-andesai:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  background-color: #f8f9fa; 
+}
