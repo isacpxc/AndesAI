@@ -1,13 +1,26 @@
 {
   "name": "AndesAI",
-  "description":  "personal text polisher",
+  "description": "personal text polisher",
   "version": "1.0",
   "manifest_version": 3,
   "action": {
-    "default_popup": "hello.html",
-    "default_icon": "hello_extensions.png"
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "64": "images/andes-64-icon.png", 
+    "128": "images/andes-128-icon.png", 
+    "256": "images/andes-256-icon.png",
+    "512": "images/andes-512-icon.png"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "scripting" 
+  ],
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "matches": ["<all_urls>"]
+    }
   ]
 }
