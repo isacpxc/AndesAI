@@ -1,5 +1,5 @@
-from flask import Flask, jsonify
-from flask import request
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 import requests
 import json
 
@@ -8,6 +8,7 @@ import json
 url = "http://localhost:11434/api/generate"
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def hello_world():
