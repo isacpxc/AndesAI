@@ -125,3 +125,19 @@ body#andes-ai-popup-container {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
   background-color: #f8f9fa; 
 }
+
+.andes-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(44, 62, 80, 0.3);
+  border-top-color: #2c3e50; 
+  border-radius: 50%;
+  animation: andes-spin 1s ease-in-out infinite;
+  padding: 5px;
+}
+
+@keyframes andes-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
