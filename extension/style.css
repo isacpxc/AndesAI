@@ -141,3 +141,93 @@ body#andes-ai-popup-container {
     transform: rotate(360deg);
   }
 }
+
+
+#menu-improved-text {
+  position: absolute;
+  z-index: 2147483647; 
+  
+  width: 400px;
+  max-height: 300px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e0e5e9;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  
+  font-family: 'Inter', sans-serif;
+  transform-origin: top left;
+  animation: andes-fade-in 0.2s ease-out;
+}
+
+@keyframes andes-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#andes-text-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5a6472;
+  text-align: left;
+}
+
+#andes-textarea {
+  width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+  
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+  
+  color: #2c3e50;
+  font-size: 15px;
+  line-height: 1.6; 
+  text-align: left;
+  box-sizing: border-box; 
+}
+
+#andes-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; 
+  gap: 8px; 
+}
+
+.andes-toolbar-button {
+  background-color: #e9ecef;
+  color: #495057;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.andes-toolbar-button:hover {
+  background-color: #dee2e6;
+}
+
+.andes-toolbar-button:last-child {
+  background-color: #3498db; 
+  color: white;
+}
+
+.andes-toolbar-button:last-child:hover {
+  background-color: #2980b9;
+}
