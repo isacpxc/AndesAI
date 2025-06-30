@@ -98,10 +98,10 @@ async function improveTxtAction(e) {
 function setupListeners() {
   document.addEventListener("mousedown", (e) => {
     e.stopPropagation();
-    const btnImrpoveTest = document.getElementById("btn-improve-andesai");
+    const btnImproveTest = document.getElementById("btn-improve-andesai");
     const andesTextArea = document.getElementById("menu-improved-text");
-    if (btnImrpoveTest && e.target.id != "btn-improve-andesai") {
-      btnImrpoveTest.remove();
+    if (btnImproveTest && e.target.id != "btn-improve-andesai") {
+      btnImproveTest.remove();
     }
     if (
       andesTextArea &&
@@ -116,23 +116,33 @@ function setupListeners() {
   });
 
   document.addEventListener("mouseup", (e) => {
-    const selectedText = window.getSelection().toString().trim();
-    const btnImrpoveTest = document.getElementById("btn-improve-andesai");
+    setTimeout(() => {
+      const selectedText = window.getSelection().toString().trim();
+      if (selectedText.length === 0) return;
 
-    if (selectedText.length > 0 && btnImrpoveTest == null) {
-      mouseX = e.pageX;
-      mouseY = e.pageY;
+      const activeElement = document.activeElement;
+      const isEditableField =
+        activeElement.tagName === "TEXTAREA" || activeElement.isContentEditable;
 
-      const btnImprove = document.createElement("button");
-      btnImprove.innerHTML = "Improve ✨";
-      btnImprove.id = "btn-improve-andesai";
-      btnImprove.style.left = `${mouseX + 5}px`;
-      btnImprove.style.top = `${mouseY + 5}px`;
-      btnImprove.addEventListener("click", improveTxtAction);
+      const existingButton = document.getElementById("btn-improve-andesai");
+      if (existingButton) return;
 
-      // console.log(btnImprove);
-      document.body.appendChild(btnImprove);
-    }
+      if (isEditableField) {
+        console.log("entrnado");
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+
+        const btnImprove = document.createElement("button");
+        btnImprove.innerHTML = "Improve ✨";
+        btnImprove.id = "btn-improve-andesai";
+        btnImprove.style.left = `${mouseX + 5}px`;
+        btnImprove.style.top = `${mouseY + 5}px`;
+        btnImprove.addEventListener("click", improveTxtAction);
+
+        // console.log(btnImprove);
+        document.body.appendChild(btnImprove);
+      }
+    }, 10); // Delay de 10 milissegundos
   });
 }
 
