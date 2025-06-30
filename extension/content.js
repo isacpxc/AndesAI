@@ -50,6 +50,25 @@ async function improveTxtAction(e) {
 
     document.body.appendChild(modalContainer);
 
+    const copyButton = modalContainer.querySelector(
+      ".andes-toolbar-button:last-child"
+    );
+    const improvedText = data.improved_text;
+
+    copyButton.addEventListener("click", () => {
+      navigator.clipboard
+        .writeText(improvedText)
+        .then(() => {
+          copyButton.textContent = "Copied!";
+          setTimeout(() => {
+            copyButton.textContent = "Copy";
+          }, 2000);
+        })
+        .catch((err) => {
+          console.error("Falha ao copiar texto: ", err);
+        });
+    });
+
     // console.log("Resposta do Llama:", data.improved_text);
   } catch (e) {
     console.log("Error during process: " + e);
