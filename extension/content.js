@@ -55,17 +55,30 @@ async function improveTxtAction(e) {
     );
     const improvedText = data.improved_text;
 
-    copyButton.addEventListener("click", () => {
+    copyButton.addEventListener("click", (e) => {
+      // É mais eficiente pegar a referência do botão a partir do evento
+      const button = e.currentTarget;
+
       navigator.clipboard
         .writeText(improvedText)
         .then(() => {
-          copyButton.textContent = "Copied!";
+          button.textContent = "Copied! ✅";
+          button.style.backgroundColor = "#2ecc71";
+
           setTimeout(() => {
-            copyButton.textContent = "Copy";
+            button.textContent = "Copy";
+            button.style.backgroundColor = "";
           }, 2000);
         })
         .catch((err) => {
           console.error("Falha ao copiar texto: ", err);
+          button.textContent = "Error! ❌";
+          button.style.backgroundColor = "#e74c3c";
+
+          setTimeout(() => {
+            button.textContent = "Copy";
+            button.style.backgroundColor = "";
+          }, 2500);
         });
     });
 
