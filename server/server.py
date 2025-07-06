@@ -31,7 +31,7 @@ def improve_text():
         response.raise_for_status()
         
         ollama_data = response.json()
-        improved_text = ollama_data.get("response", "") # return "" is key doesn't exist 
+        improved_text = ollama_data.get("response", "")
         
         return jsonify({"improved_text": improved_text})
         

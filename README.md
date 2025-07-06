@@ -63,9 +63,9 @@ Siga os passos abaixo para ter o projeto rodando em sua máquina.
 
 ### Pré-requisitos
 
-  * **Python 3.8+**
+  * **Python 3.8+**: download em [python.com](https://www.python.org/downloads/)
   * **Ollama:** Faça o download em [ollama.com](https://ollama.com/)
-  * **Git** (para clonar o repositório)
+  * **Git** (para clonar o repositório) - [download](https://git-scm.com/downloads)
 
 ### 1. Backend (Servidor Python)
 
