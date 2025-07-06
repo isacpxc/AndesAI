@@ -1,4 +1,4 @@
-async function improveTxtAction(e) {
+async function improveTxtAction(e, range, activeElement) {
   e.stopPropagation();
 
   const button = e.currentTarget;
@@ -53,6 +53,26 @@ async function improveTxtAction(e) {
     const copyButton = modalContainer.querySelector(
       ".andes-toolbar-button:last-child"
     );
+
+    const replaceButton = modalContainer.querySelector(
+      ".andes-toolbar-button:first-child"
+    );
+
+    replaceButton.addEventListener("click", (e) => {
+      if (activeElement.tagName === "TEXTAREA") {
+        const text = activeElement.value;
+        activeElement.value =
+          text.slice(0, activeElement.selectionStart) +
+          improvedText +
+          text.slice(activeElement.selectionEnd);
+      } else {
+        range.deleteContents();
+        const newTextNode = document.createTextNode(improvedText);
+        range.insertNode(newTextNode);
+      }
+      modalContainer.remove();
+    });
+
     const improvedText = data.improved_text;
 
     copyButton.addEventListener("click", (e) => {
@@ -88,8 +108,9 @@ async function improveTxtAction(e) {
   } finally {
     window.getSelection().removeAllRanges();
     spinner.remove();
-    button.disabled = false;
-    button.remove();
+    if (button) {
+      button.remove();
+    }
     // console.log(e);
     // e.target.remove();
   }
@@ -128,6 +149,7 @@ function setupListeners() {
       if (existingButton) return;
 
       if (isEditableField) {
+        const range = window.getSelection().getRangeAt(0);
         console.log("entrnado");
         mouseX = e.pageX;
         mouseY = e.pageY;
@@ -137,7 +159,10 @@ function setupListeners() {
         btnImprove.id = "btn-improve-andesai";
         btnImprove.style.left = `${mouseX + 5}px`;
         btnImprove.style.top = `${mouseY + 5}px`;
-        btnImprove.addEventListener("click", improveTxtAction);
+
+        btnImprove.addEventListener("click", (event) => {
+          improveTxtAction(event, range, activeElement);
+        });
 
         // console.log(btnImprove);
         document.body.appendChild(btnImprove);
