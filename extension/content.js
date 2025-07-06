@@ -76,7 +76,7 @@ async function improveTxtAction(e, range, activeElement) {
     const improvedText = data.improved_text;
 
     copyButton.addEventListener("click", (e) => {
-      // É mais eficiente pegar a referência do botão a partir do evento
+      
       const button = e.currentTarget;
 
       navigator.clipboard
@@ -102,7 +102,6 @@ async function improveTxtAction(e, range, activeElement) {
         });
     });
 
-    // console.log("Resposta do Llama:", data.improved_text);
   } catch (e) {
     console.log("Error during process: " + e);
   } finally {
@@ -111,8 +110,6 @@ async function improveTxtAction(e, range, activeElement) {
     if (button) {
       button.remove();
     }
-    // console.log(e);
-    // e.target.remove();
   }
 }
 
@@ -150,7 +147,6 @@ function setupListeners() {
 
       if (isEditableField) {
         const range = window.getSelection().getRangeAt(0);
-        console.log("entrnado");
         mouseX = e.pageX;
         mouseY = e.pageY;
 
@@ -164,10 +160,9 @@ function setupListeners() {
           improveTxtAction(event, range, activeElement);
         });
 
-        // console.log(btnImprove);
         document.body.appendChild(btnImprove);
       }
-    }, 10); // Delay de 10 milissegundos
+    }, 10);
   });
 }
 
